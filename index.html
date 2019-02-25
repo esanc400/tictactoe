@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="HTML5_thrColFixHdr.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+table {
+	margin-right: auto;
+	margin-left: auto;
+}
+.centerIt {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	text-align: center;
+	width: 60px;
+}
+td {
+	text-align: center;
+	height: 40px;
+	width: 40px;
+}
+button {
+	height: 38px;
+	width: 38px;
+}
+</style>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+
+var letter = "NUll";    
+var count = 1;
+var turnCount=9;    
+var currentPlayer;
+var prePlayer;
+var playerCount=1;    
+var positionArray = [0,0,0,0,0,0,0,0,0];
+var scoreX=0;
+var scoreO=0;    
+function toggle(position)
+    {
+        
+        
+        currentPlayer = position;
+        
+        if(currentPlayer != prePlayer)
+            {
+                turnCount = turnCount - 1;
+                count++;
+                //document.getElementById("demo").innerHTML = turnCount;
+                playerCount = (count % 2);
+        
+        
+                
+                    if(playerCount == 0 && position != "O" && position != "X")
+                        {
+                        document.getElementById(position).innerHTML = "X";
+                        positionArray.splice(position-1,1,1);  
+                         
+                        }
+                    else if(playerCount == 1 && position != "X" && position != "O")
+                        {
+                        document.getElementById(position).innerHTML = "O";
+                        positionArray.splice(position-1,1,-1); 
+                       
+                        }
+            }
+           prePlayer = currentPlayer;
+        
+               /* //rows wins
+               
+                for (var j=0;j<3;j++)
+                    {
+                      i = j*3;  
+                        var k=0;
+                      
+                        var rowsum = 0;
+                for (i;k<3;k++)
+                    {
+                        //alert("test");
+                        
+                        rowsum = rowsum + positionArray[k];
+                  
+                        if(rowsum==3 || rowsum == -3)
+                            {
+                                alert("test");
+                            }
+                    }
+                    }
+               //col win
+               //diag
+                //verwin */
+                 
+             }
+    
+
+</script>
+</head>
+
+<body>
+
+    
+    
+<div class="container">
+  <header>
+    <img src="assets/banner.GIF" width="958" height="283"></a>
+  </header>
+  <div class="sidebar1">
+    
+    <aside>
+      <p>Tic-tac-toe  is a fun game that you can play any time and anywhere as long as you have a  piece of paper, a pencil, and an opponent. Tic-tac-toe is a zero sum game,  which means that if both players are playing their best, that neither player  will win. However, if you learn how to play tic-tac-toe and master some simple  strategies, then you'll be able to not only play, but to win the majority of  the time. If you want to know how to play tic-tac-toe, then see Step 1 to get  started</p>
+</aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1>Played in Ancient Egypt</h1>
+    <section>
+     <h2>Tic Tac Toe</h2>
+       <p id="demo"></p> 
+      <p>&nbsp;</p>
+    </section>
+    <section>
+      <table width="200" border="1">
+        <tr>
+          <td id="11"><button id="1" onClick="toggle('1')">---</button></td>
+          <td id="12"><button id="2" onClick="toggle('2')">---</button></td>
+          <td id="13"><button id="3" onClick="toggle('3')">---</button></td>
+        </tr>
+        <tr>
+          <td id="21"><button id="4" onClick="toggle('4')">---</button></td>
+          <td id="22"><button id="5" onClick="toggle('5')">---</button></td>
+          <td id="23"><button id="6" onClick="toggle('6')">---</button></td>
+        </tr>
+        <tr>
+          <td id="31"><button id="7" onClick="toggle('7')">---</button></td>
+          <td id="32"><button id="8" onClick="toggle('8')">---</button></td>
+          <td id="33"><button id="9" onClick="toggle('9')">---</button></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+     
+      <div class="centerIt" style="width:80px"><button style="width:80px" onClick="reset()">Reset/Start</button></div>
+      <p>&nbsp;</p>
+      <h2>&nbsp;</h2>
+</section>
+    <section>
+      <h2>Tactics</h2>
+      <p>Despite its apparent simplicity, Tic-tac-toe requires detailed   analysis to determine even some elementary combinatory facts, the most   interesting of which are the number of possible games and the number of   possible positions. A position is merely a state of the board, while a   game usually refers to the way a terminal position is obtained.</p>
+      <p>Naive counting leads to 19,683 possible board layouts (39 since each of the nine spaces can be X, O or blank), and 362,880 (i.e., 9<a href="https://en.wikipedia.org/wiki/Factorial" title="Factorial">!</a>) possible games (different sequences for placing the Xs and Os on the board). However, two matters much reduce these numbers:</p>
+      <ul>
+        <li>The game ends when three-in-a-row is obtained.</li>
+        <li>If X starts, the number of Xs is always either equal to or exactly 1 more than the number of Os.</li>
+      </ul>
+      <p>The complete analysis is further complicated by the definitions used when setting the conditions, like board symmetries.</p>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <p>According to Claudia Zaslavsky's book <em>Tic Tac Toe: And Other Three-In-A Row Games from Ancient Egypt to the Modern Computer</em>, tic-tac-toe could be traced back to <a href="https://en.wikipedia.org/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>.<a href="https://en.wikipedia.org/wiki/Tic-tac-toe#cite_note-4">[4]</a> Another closely related ancient game is <a href="https://en.wikipedia.org/wiki/Three_Men%27s_Morris" title="Three Men's Morris">Three Men's Morris</a> which is also played on a simple grid and requires three pieces in a row to finish.<a href="https://en.wikipedia.org/wiki/Tic-tac-toe#cite_note-5">[5]</a></p>
+    <p>An early variation of tic-tac-toe was played in the <a href="https://en.wikipedia.org/wiki/Roman_Empire" title="Roman Empire">Roman Empire</a>,   around the first century BC. It was called Terni Lapilli and instead of   having any number of pieces, each player only had three, thus they had   to move them around to empty spaces to keep playing.<a href="https://en.wikipedia.org/wiki/Tic-tac-toe#cite_note-6">[6]</a> The game's grid markings have been found chalked all over Rome.</p>
+    <h4>&nbsp;</h4>
+  </aside>
+  <footer>
+    <p>https://en.wikipedia.org/wiki/Tic-tac-toe
+    </p>
+  </footer>
+<!-- end .container --></div>
+</body>
+</html>
